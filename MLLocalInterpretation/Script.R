@@ -17,10 +17,7 @@ h2o.init()
 
 
 
-
-
 # Work Flow ---------------------------------------------------------------
-
 
 
 workFlow <- drake_plan(
@@ -67,9 +64,7 @@ workFlow <- drake_plan(
 
 config <- drake_config(workFlow) 
 vis_drake_graph(config)
-make(workFlow)
-
-
+#make(workFlow)
 
 
 # Analise na Seção --------------------------------------------------------
@@ -88,3 +83,4 @@ explicacao <- readd("explicacao")
 
 plot_features(explicacao)
 plot_explanations(explicacao)
+
