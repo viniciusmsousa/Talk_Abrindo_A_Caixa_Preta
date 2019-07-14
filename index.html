@@ -1,0 +1,843 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Aplicacao de Ciencia de Dados</title>
+
+    <meta name="description" content="Aplicacao_de_Cienciade_Dados">
+    <meta name="author" content="Vinicius Melquiades de Sousa">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        h1, h2, h3 {
+            text-shadow: 7px 7px 10px #000000 !important;
+        }
+
+        div.slides {
+            text-shadow: 3px 3px 1px #1c1e20 !important;
+        }
+        
+        blockquote {
+            background: rgba(180, 180, 180, 0.2);
+        }
+        
+        blockquote {
+            text-align: left;
+            width: 90% !important;
+        }
+
+        div.author {
+            text-align: right;
+            margin-right: 10pt;
+        }
+
+        div.author:before {
+            content: '(';
+        }
+
+        div.author:after {
+            content: ')';
+        }
+
+        section.center p {
+            text-align: center;
+        }
+
+        p img {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            display: block;
+            border: 1px solid #2b2b2b !important;
+        }
+        p {
+            text-align: justify;
+        }
+        .side {
+            text-align: center;
+            margin: 0px !important;
+            padding: 0px !important;
+            border: 0px !important;
+        }
+        .side img { 
+            display: inline;
+            margin: 0px !important;
+            padding: 0px !important;
+            border: 0px !important;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .small {
+            font-size: 32px !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section class="center" data-background-image="images/matrix-2354492.jpg">
+            <h2>Resolvendo Problemas</h2>
+            <h3>com</h3>
+            <h2>Ciência de Dados</h2>
+
+            <p>Vinícius M. de Sousa<br>
+            <small align="left">
+            <a href="https://www.linkedin.com/in/viniciusmsousa/">in/viniciusmsousa/</a><br>
+            <a href="github.com/viniciusmsousa/">github.com/viniciusmsousa</a><br>
+            <a href="mailto:vinisousa04@gmail.com">&lt;vinisousa04@gmail.com&gt;</a>
+            </small>
+            </p>
+                <small>IFSC/São José - 25 de Junho de 2019</small> 
+            
+        </section>
+        
+
+        <section>
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/3ov9jU8GoFU0OGcdwc/giphy.gif" >
+                <h1>Introdução</h1>
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg" data-markdown>
+                ## Sobre mim
+
+                - Nascido em Joinville, 23 anos;
+                - Cristão;
+                - Economista pela Esag/Udesc;
+                - Mestrando em Ciência da Informação no PGCin/Ufsc;
+                - Pós-Graduando em Ciência de Dados (Parceria Senai/SC e Keyrus);
+                - Cientista de Dados na [Meantrix](http://meantrix.com/)
+            </section>
+
+            <section data-markdown class="center" data-background-image="images/matrix-2354492.jpg">
+            ## Plano de Vôo
+
+            - Explosão Informacional
+                - Quanto de informação geramos?
+                - Como se manter informado?
+            - Ciência de Dados entra em ação
+                - Como analisar conteúdo do Youtube
+                - Análise
+                - Resultados
+            - Considerações Finais
+            	- Outras Aplicações
+            	- Contato
+
+            </section>
+        </section>
+        
+        <section>
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/evQMS6jDEhcwU/giphy.gif" >
+                <h2>Explosão Informacional</h2>
+                <span style="display: inline-block;" class="fragment fade-up"><h4><span style="display: inline-block;" class="fragment grow">
+                	<a href="https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/#715db33f60ba">Quanto de informação geramos?</a></span></h4>
+                <h4><span style="display: inline-block;" >Como se manter informado?</span></h4></span>
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+                <h2>Buscas na Internet</h2>
+                <ol>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Em média, o Google processa 40.000 pesquisas por segundo;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Considerando as demais buscas, chega-se a 5 bilhões por dia.</li></span>
+                    
+                </ol>                
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3><a href="https://www.digitalinformationworld.com/2018/06/infographics-data-never-sleeps-6.html">Informação gerada por minuto</a></h3>
+                   <img class="fragment fade-up" width="58%"  src="images/data.jpg">  
+
+                   <aside class="notes">
+                   	<ol>
+                   		<li>Mais de 1 milhão de novos Gifs</li>
+                   		<li>1.111 pacotes enviado pela amazon</li>
+                   		<li>4 milhões de vídeos assistidos no youtube</li>
+                   		<li>12 milhões de mensagens de texto são enviadas</li>
+                   	</ol>
+                   </aside>      
+            </section>
+
+        </section>
+
+
+        <section>
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/evQMS6jDEhcwU/giphy.gif" >
+                <h2>Explosão Informacional</h2>
+                <h4><span style="display: inline-block;" ><a href="https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/#715db33f60ba">Quanto de informação geramos?</a></span></h4>
+                <h4><span style="display: inline-block;" class="fragment grow">Como se manter informado?</span></h4>
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+                <h3>Como se manter informado?</h3>
+                <span style="display: inline-block;" class="fragment fade-up">Não há como estar bem informado sobre tudo. Deve-se procurar maneiras eficientes de se informar.</span> <span style="display: inline-block;" class="fragment fade-up">E deve-se criar prioridades em relação ao quão informado deve-se estar para determinados grupos.</span> <span style="display: inline-block;" class="fragment fade-up">Como podemos otimizar isso?</span>
+
+                <aside class="notes">
+                	Momentos:
+                	<ul>
+                        <li>Reunião de trabalho/apresentação de artigo não tem como escapar</li>
+                        <li>Churrasco com amigos/conversas de corredores queremos parece legais ainda</li> 
+                    </ul>
+                </aside>
+            </section>
+            <section data-background="https://media.giphy.com/media/JWaIqQnICJMt2/giphy.gif">
+            	
+            </section>
+
+            <section data-background="https://media.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif">
+                <h2>Ideia</h2>
+                <span style="display: inline-block;" class="fragment fade-up">Por que não analisar o conteúdo do canal do Youtube dos jornais mais lidos do Brasil?</span> <span style="display: inline-block;" class="fragment fade-up">Afinal de contas, o <a href="https://link.springer.com/referenceworkentry/10.1007%2F978-94-024-1202-4_1-1">Youtube é atualmente o segundo motor de pesquisa mais utilizado da internet</a>.</span>
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+                <h2>Resumo: Qual é o (meu) problema?</h2>
+                    <ol>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Não é possível estar bem informado em todas as ocasiões;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Portanto, deve-se pensar em duas coisas: (i) Em quais ocasiões temos que estar (muito) bem  informados; e (ii) Como otimizar nosso processo informacional para situações mais gerais;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Os jornais mais lidos no Brasil são <a href="https://www1.folha.uol.com.br/poder/2019/04/com-crescimento-digital-folha-lidera-circulacao-total-entre-jornais-brasileiros.shtml">Folha e O Globo</a>;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Vamos, então, analisar o conteúdo dos canais do Youtube desses jornais.</li></span>
+                </ol>
+                <span style="display: inline-block;" class="fragment fade-right">E como</span> <span style="display: inline-block;" class="fragment fade-up">podemos</span> <span style="display: inline-block;" class="fragment fade-left">fazer isso?</span>
+            </section>
+        </section>
+
+
+        <section>
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/3o6Yg4GUVgIUg3bf7W/giphy.gif" >
+                <h2>Ciência de Dados entra em Ação</h2>
+                <span style="display: inline-block;" class="fragment fade-up">
+                    <h4><span style="display: inline-block;" class="fragment grow">Como analisar conteúdo do Youtube</span></h4><h4><span style="display: inline-block;" >Análise</span></h4>
+                    <h4><span style="display: inline-block;" >Resultados</span></h4>
+                </span>
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">
+                <h3>Como analisar conteúdo do Youtube</h3>
+                <h5>(Uma sugestão)</h5>
+                <ol>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Baixar as captions e metadados dos vídeos dos canais: (i) <a href="https://www.youtube.com/channel/UCY-8xcFwlVuy6jmUD1DG1Rg">Folha</a> e <a href="https://www.youtube.com/user/jornaloglobo">O Globo</a>;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Utilizar NLP nas captions para encontrarmos tópicos;</li></span>
+                    <span style="display: inline-block;" class="fragment fade-up"><li>Utilizar NLP para encontrar posicionamentos dos jornais.</li></span>
+                </ol>
+            </section>
+
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/3o6Yg4GUVgIUg3bf7W/giphy.gif" >
+                <h2>Ciência de Dados entra em Ação</h2>
+                <h4><span style="display: inline-block;" >Como analisar conteúdo do Youtube</span></h4>
+                <h4><span style="display: inline-block;" class="fragment grow">Análise</span></h4>
+                <h4><span style="display: inline-block;" >Resultados</span></h4>
+            </section>
+
+            <section data-background-iframe="https://ytdl-org.github.io/youtube-dl/index.html" data-background-interactive>
+                    <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h2>1)Baixar captions</h2>
+                        <p> API Youtube-dl é uma API open source que permite baixarmos informações sobre os videos: (i) id; (ii) title; (iii) upload_date; (iv) duration; (v) view_count; (vi) like_count; (vii) dislike_count; e (viii) caption.</p>
+                    </div>
+            </section>
+            <section data-background-image="images/youtube_dl_table.JPG">
+                    <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h2>Descrição dos dados</h2>
+                        <p> <span class="fragment fade-up">Informações de todos os vídeos dos canais da Folha e do O Globo que estavam na plataforma no dia 27 de Abril. 3477 videos, 2828 da Folha e 649 do O Globo.</span> <span class="fragment fade-up">Há um total de 120 milhões de views, mais de 2 milhões de likes 800 mil dislikes.</span> <span class="fragment fade-up">E 16 dias, 9 horas, 43 minutos e 10 segundos de conteúdo.</span></p>
+                    </div>
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+                <h2>2) Encontrar tópicos</h2>
+                <h4><a href="https://cran.r-project.org/web/packages/stm/vignettes/stmVignette.pdf"> Structure Topic Model</a></h4>
+                <span class="fragment fade-up"><small>Faz parte do conjunto de métodos de aprendizado não supervisionado com o objetivo de encontrar descrições curtas de documentos dentro de coleções de documentos.</small></span>
+
+                <span class="fragment fade-up">
+                    <body>
+                        <img width="110%" src="images/STM_generative_process.JPG" alt="Simply Easy Learning">
+                    </body>
+                </span>
+                <span class="fragment fade-up">
+                    <small>Usam-se métricas para ajudar a escolher o número de tópicos (e.g., exclusividade, coerência)</small>
+                </span>                
+            </section>
+            <section data-background-image="images/dicionario.JPG">
+                    <div style="position: absolute; width: 60%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h2>3) Encontrar Posicionamentos</h2>
+                        <h4>(Dicionário com Polaridade das palavras)</h4>
+        					<table  class="fragment fade-up">
+							 <thead>
+							  <tr>
+							   <th style="text-align:left;"> Termo </th>
+							   <th style="text-align:left;"> Categoria Gramática </th>
+							   <th style="text-align:right;"> Polaridade </th>
+							  </tr>
+							 </thead>
+							<tbody>
+							  <tr>
+							   <td style="text-align:left;"> apavorar-se </td>
+							   <td style="text-align:left;"> V </td>
+							   <td style="text-align:right;"> -1 </td>
+							  </tr>
+							  <tr>
+							   <td style="text-align:left;"> agoniar </td>
+							   <td style="text-align:left;"> V </td>
+							   <td style="text-align:right;"> -1 </td>
+							  </tr>
+							  <tr>
+							   <td style="text-align:left;"> absolvido </td>
+							   <td style="text-align:left;"> Adj </td>
+							   <td style="text-align:right;"> 0 </td>
+							  </tr>
+							  <tr>
+							   <td style="text-align:left;"> coercivo </td>
+							   <td style="text-align:left;"> Adj </td>
+							   <td style="text-align:right;"> -1 </td>
+							  </tr>
+							  <tr>
+							   <td style="text-align:left;"> antoniano </td>
+							   <td style="text-align:left;"> Adj </td>
+							   <td style="text-align:right;"> 0 </td>
+							  </tr>
+							  <tr>
+							   <td style="text-align:left;"> ... </td>
+							   <td style="text-align:left;"> ... </td>
+							   <td style="text-align:right;"> ... </td>
+							  </tr>
+							</tbody>
+							</table>
+                    </div>
+            </section>
+
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/3o6Yg4GUVgIUg3bf7W/giphy.gif" >
+                <h2>Ciência de Dados entra em Ação</h2>
+                <h4><span style="display: inline-block;" >Como analisar conteúdo do Youtube</span></h4>
+                <h4><span style="display: inline-block;" >Análise</span></h4>
+                <h4><span style="display: inline-block;" class="fragment grow">Resultados</span></h4>          
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h2>Número de Tópicos</h2>
+            		<table class="fragment fade-up">
+            			<caption>Top 5 Números de Tópicos (exclus)</caption>
+					 <thead>
+					  <tr>
+					   <th style="text-align:right;"> K </th>
+					   <th style="text-align:right;"> exclus </th>
+					   <th style="text-align:right;"> semcoh </th>
+					   <th style="text-align:right;"> residual </th>
+					   <th style="text-align:right;"> em.its </th>
+					  </tr>
+					 </thead>
+					<tbody>
+					  <tr>
+					   <td style="text-align:right;"> 12 </td>
+					   <td style="text-align:right;"> 9,648200 </td>
+					   <td style="text-align:right;"> -61,83520 </td>
+					   <td style="text-align:right;"> 3,267937 </td>
+					   <td style="text-align:right;"> 89 </td>
+					  </tr>
+					  <tr>
+					   <td style="text-align:right;"> 13 </td>
+					   <td style="text-align:right;"> 9,631291 </td>
+					   <td style="text-align:right;"> -60,95676 </td>
+					   <td style="text-align:right;"> 3,243772 </td>
+					   <td style="text-align:right;"> 90 </td>
+					  </tr>
+					  <tr  class="fragment grow">
+					   <td style="text-align:right;"> 20 </td>
+					   <td style="text-align:right;"> 9,626880 </td>
+					   <td style="text-align:right;"> -68,54038 </td>
+					   <td style="text-align:right;"> 3,017537 </td>
+					   <td style="text-align:right;"> 115 </td>
+					  </tr>
+					  <tr>
+					   <td style="text-align:right;"> 14 </td>
+					   <td style="text-align:right;"> 9,624530 </td>
+					   <td style="text-align:right;"> -64,36621 </td>
+					   <td style="text-align:right;"> 3,197510 </td>
+					   <td style="text-align:right;"> 91 </td>
+					  </tr>
+					  <tr>
+					   <td style="text-align:right;"> 19 </td>
+					   <td style="text-align:right;"> 9,617475 </td>
+					   <td style="text-align:right;"> -64,66370 </td>
+					   <td style="text-align:right;"> 3,036074 </td>
+					   <td style="text-align:right;"> 96 </td>
+					  </tr>
+					</tbody>
+					</table>
+					<span class="fragment fade-up">
+						<small class="fragment grow">
+							OBS: 12 tópicos têm a maior exclusividade, porém com 20 tópicos pioramos 0,22% de exclusividade e melhoramos em 8,3% o score residual.
+						</small>
+					</span>
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h2>Descrição dos Tópicos</h2>
+            	<h4>(de alguns)</h4>
+            	<table class="fragment fade-up" style="font-size: 25px; margin-left: auto; margin-right: auto;">
+				 <thead>
+				<tr>
+				<th class="fragment fade-down" style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Polícia</div></th>
+				<th class="fragment fade-down" style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Eleições</div></th>
+				<th class="fragment fade-down" style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economia/Finanças</div></th>
+				<th  class="fragment fade-down"style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Educação</div></th>
+				</tr>
+				  <tr>
+				   <th style="text-align:left;"> Prob </th>
+				   <th style="text-align:left;"> Exclu </th>
+				   <th style="text-align:left;"> Prob </th>
+				   <th style="text-align:left;"> Exclu </th>
+				   <th style="text-align:left;"> Prob </th>
+				   <th style="text-align:left;"> Exclu </th>
+				   <th style="text-align:left;"> Prob </th>
+				   <th style="text-align:left;"> Exclu </th>
+				  </tr>
+				 </thead>
+				<tbody>
+				  <tr>
+				   <td style="text-align:left;"> policia </td>
+				   <td style="text-align:left;"> protesto </td>
+				   <td style="text-align:left;"> candidato </td>
+				   <td style="text-align:left;"> turno </td>
+				   <td style="text-align:left;"> dinheiro </td>
+				   <td style="text-align:left;"> juro </td>
+				   <td style="text-align:left;"> prova </td>
+				   <td style="text-align:left;"> aluno </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> rua </td>
+				   <td style="text-align:left;"> policiai </td>
+				   <td style="text-align:left;"> voto </td>
+				   <td style="text-align:left;"> bolsonaro </td>
+				   <td style="text-align:left;"> banco </td>
+				   <td style="text-align:left;"> inflacao </td>
+				   <td style="text-align:left;"> aluno </td>
+				   <td style="text-align:left;"> enem </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> carro </td>
+				   <td style="text-align:left;"> policia </td>
+				   <td style="text-align:left;"> turno </td>
+				   <td style="text-align:left;"> voto </td>
+				   <td style="text-align:left;"> mil </td>
+				   <td style="text-align:left;"> imposto </td>
+				   <td style="text-align:left;"> texto </td>
+				   <td style="text-align:left;"> prova </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> militar </td>
+				   <td style="text-align:left;"> polici </td>
+				   <td style="text-align:left;"> eleicao </td>
+				   <td style="text-align:left;"> candidato </td>
+				   <td style="text-align:left;"> valor </td>
+				   <td style="text-align:left;"> renda </td>
+				   <td style="text-align:left;"> escola </td>
+				   <td style="text-align:left;"> cozinha </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> seguranca </td>
+				   <td style="text-align:left;"> manifestacao </td>
+				   <td style="text-align:left;"> partido </td>
+				   <td style="text-align:left;"> eleitor </td>
+				   <td style="text-align:left;"> imposto </td>
+				   <td style="text-align:left;"> rendimento </td>
+				   <td style="text-align:left;"> questo </td>
+				   <td style="text-align:left;"> lingua </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> onibus </td>
+				   <td style="text-align:left;"> motorista </td>
+				   <td style="text-align:left;"> segundo </td>
+				   <td style="text-align:left;"> marina </td>
+				   <td style="text-align:left;"> renda </td>
+				   <td style="text-align:left;"> declaracao </td>
+				   <td style="text-align:left;"> enem </td>
+				   <td style="text-align:left;"> matematica </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> contra </td>
+				   <td style="text-align:left;"> onibus </td>
+				   <td style="text-align:left;"> campanha </td>
+				   <td style="text-align:left;"> eleicao </td>
+				   <td style="text-align:left;"> mercado </td>
+				   <td style="text-align:left;"> despesa </td>
+				   <td style="text-align:left;"> tema </td>
+				   <td style="text-align:left;"> prato </td>
+				  </tr>
+				</tbody>
+				</table>
+            </section>
+
+
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h2>Tópicos que mais compõem os vídeos</h2>
+            	<table class="fragment fade-up" style="font-size: 15px; margin-left: auto; margin-right: auto;">
+				 <thead>
+				  <tr>
+				   <th style="text-align:left;"> Título </th>
+				   <th style="text-align:left;"> Tópico </th>
+				   <th style="text-align:right;"> Composição </th>
+				  </tr>
+				 </thead>
+				<tbody>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> Lava-Jato - Depoimento de Lula ao juiz Sergio Moro - parte 3 </td>
+				   <td style="text-align:left;" > Lula </td>
+				   <td style="text-align:right;" > 0,9941879 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Duda Brack canta Luiz Melodia _ TOCA NO TELHADO </td>
+				   <td style="text-align:left;"> Carnaval </td>
+				   <td style="text-align:right;"> 0,8845987 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> The Brazilian War </td>
+				   <td style="text-align:left;"> Favela </td>
+				   <td style="text-align:right;"> 0,9908216 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> La Guerra de Brasil </td>
+				   <td style="text-align:left;"> Favela </td>
+				   <td style="text-align:right;"> 0,9908216 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" > Sérgio Rodrigues - Essa seleção será esquecida </td>
+				   <td style="text-align:left;"> Copa_do_Mundo </td>
+				   <td style="text-align:right;"> 0,9926860 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> Onda de filmes de autoajuda deve tomar conta do cinema, diz Monjardim </td>
+				   <td style="text-align:left;"> Cinema </td>
+				   <td style="text-align:right;"> 0,9853499 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" > tvfolha ao vivo - Dilma evita melindrar senadores em possível discurso final como estadista </td>
+				   <td style="text-align:left;"> Politica </td>
+				   <td style="text-align:right;"> 0,9629830 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> O que é o Estado Islâmico - Folha Explica #7 </td>
+				   <td style="text-align:left;"> Politica_Inter </td>
+				   <td style="text-align:right;"> 0,9783605 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> 'Parece que falamos grego', diz ativista ao debater cultura do estupro </td>
+				   <td style="text-align:left;"> Violência_Sexual </td>
+				   <td style="text-align:right;"> 0,9926635 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Veja entrevista com advogado de Dirceu após aceitação de recursos no processo do mensalão </td>
+				   <td style="text-align:left;"> Justica_Investicacao </td>
+				   <td style="text-align:right;"> 0,9775733 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> Crise do Clima - Nordeste </td>
+				   <td style="text-align:left;"> Meio_Ambiente </td>
+				   <td style="text-align:right;"> 0,9854883 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Governo também prepara plano para ensino fundamental, diz ministro </td>
+				   <td style="text-align:left;"> Trabalho </td>
+				   <td style="text-align:right;"> 0,9948757 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> tvfolha ao vivo - Nos bastidores, imprensa internacional não poupa críticas ao Brasil </td>
+				   <td style="text-align:left;"> Olimpiadas </td>
+				   <td style="text-align:right;"> 0,9853708 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> tvfolha ao vivo - 'Fiquei muito decepcionada', diz vice de Russomanno sobre abandono de Marta </td>
+				   <td style="text-align:left;"> Prefeitura </td>
+				   <td style="text-align:right;"> 0,9952588 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Folhacóptero mostra qualidade das praias no litoral paulista; veja </td>
+				   <td style="text-align:left;"> Generico </td>
+				   <td style="text-align:right;"> 0,9676345 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Criolo canta 'Casa de Mãe' e 'Quatro da Manhã' </td>
+				   <td style="text-align:left;"> Lar </td>
+				   <td style="text-align:right;"> 0,9373038 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Reporter tells how the Police brutality marked the latest protest </td>
+				   <td style="text-align:left;"> Policia </td>
+				   <td style="text-align:right;"> 0,9854183 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> tvfolha ao vivo - Arena do Marketing entrevista CEO da Dentsu Aegis Network </td>
+				   <td style="text-align:left;"> Negocios </td>
+				   <td style="text-align:right;"> 0,9586107 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> Prova do Enem está mais madura, avaliam professores </td>
+				   <td style="text-align:left;"> Educacao </td>
+				   <td style="text-align:right;"> 0,9957219 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Jornalistas e diretor do Datafolha analisam nova pesquisa </td>
+				   <td style="text-align:left;"> Eleicoes </td>
+				   <td style="text-align:right;"> 0,9951740 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;" class="fragment grow"> tvfolha ao vivo -  Especialista aponta quais gastos podem ser deduzidos do Imposto de Renda </td>
+				   <td style="text-align:left;"> Economia/Financas </td>
+				   <td style="text-align:right;"> 0,9937982 </td>
+				  </tr>
+				</tbody>
+				</table>
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Médias por tópicos: Duração</h3>
+                    <img width="80%" height="75%" src="images/freq_duration.svg">
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Médias por tópicos: Visualizações</h3>
+                    <img width="80%" height="75%" src="images/freq_visualizacao.svg">
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Médias por tópicos: Likes</h3>
+                    <img width="80%" height="75%" src="images/freq_likes.svg">
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Médias por tópicos: Dislikes</h3>
+                    <img width="80%" height="75%" src="images/freq_dislikes.svg">
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Correlação entre os tópicos</h3>
+                    <img width="87%"  src="images/topic_correlation.svg">
+
+                    <aside class="notes">
+                    	De Economia/finanças até justica_investigação
+
+                    </aside>
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h2>Impacto de ser O Globo</h2>
+            	<h6>(Nível de significância de 5%)</h6>
+            	<table class="table fragment fade-up" style="font-size: 27px; margin-left: auto; margin-right: auto;">
+				 <thead>
+				  <tr>
+				   <th style="text-align:left;"> Tópico </th>
+				   <th style="text-align:right;"> Impacto </th>
+				   <th style="text-align:left;"> Tópico </th>
+				   <th style="text-align:right;"> Impacto </th>
+				  </tr>
+				 </thead>
+				<tbody>
+				  <tr>
+				   <td style="text-align:left;"> Carnaval </td>
+				   <td style="text-align:right;"> 0,0338613 </td>
+				   <td style="text-align:left;"> Prefeitura </td>
+				   <td style="text-align:right;"> -0,0207050 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Politica </td>
+				   <td style="text-align:right;"> - </td>
+				   <td style="text-align:left;"> Olimpiadas </td>
+				   <td style="text-align:right;"> -0,0105154 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Violência_Sexual </td>
+				   <td style="text-align:right;"> 0,0316163 </td>
+				   <td style="text-align:left;"> Eleicoes </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Generico </td>
+				   <td style="text-align:right;"> -0,0181373 </td>
+				   <td style="text-align:left;"> Copa_do_Mundo </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Educacao </td>
+				   <td style="text-align:right;"> - </td>
+				   <td style="text-align:left;"> Lar </td>
+				   <td style="text-align:right;"> 0,0268352 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Favela </td>
+				   <td style="text-align:right;"> - </td>
+				   <td style="text-align:left;"> Trabalho </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Cinema </td>
+				   <td style="text-align:right;"> - </td>
+				   <td style="text-align:left;"> Politica_Inter </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Meio_Ambiente </td>
+				   <td style="text-align:right;"> -0,0211871 </td>
+				   <td style="text-align:left;"> Negocios </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Justica_Investicacao </td>
+				   <td style="text-align:right;"> - </td>
+				   <td style="text-align:left;"> Economia/Financas </td>
+				   <td style="text-align:right;"> -0,0172133 </td>
+				  </tr>
+				  <tr>
+				   <td style="text-align:left;"> Lula </td>
+				   <td style="text-align:right;"> 0,0195781 </td>
+				   <td style="text-align:left;"> Policia </td>
+				   <td style="text-align:right;"> - </td>
+				  </tr>
+				</tbody>
+				</table>
+
+
+				<aside class="notes">
+					O Globo + Lula
+					O Globo - Economia e finanças
+				</aside>
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Posicionamento dos jornais</h3>
+                    <img class="fragment fade-up" width="85%"  src="images/sentimento.svg">
+            </section>
+            <section data-background-image="images/matrix-2354492.jpg">
+            	<h3>Posicionamento dos jornais</h3>
+                    <img  width="85%"  src="images/sentimento_selecionados.svg">
+            </section>
+        </section>
+
+        
+        <section>
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/DRxHDNRhJOBTW/giphy.gif" >
+            <h2>Considerações Finais</h2>
+            <span style="display: inline-block;" class="fragment fade-up">
+                <h4><span style="display: inline-block;" class="fragment grow">Outras Aplicações</span></h4><h4><span style="display: inline-block;" >Contato</span></h4>
+            </span>
+            </section>       
+
+            <section data-background-iframe="http://networkscience.com.br/wp-content/uploads/2018/11/IISINS_EScience_DadosAbertos_RelTec_Recuperac%CC%A7a%CC%83oInfoMPSC.pdf" data-background-interactive>
+            	<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;" class="fragment fade-out">
+                        <h2><a href="http://networkscience.com.br/wp-content/uploads/2018/11/IISINS_EScience_DadosAbertos_RelTec_Recuperac%CC%A7a%CC%83oInfoMPSC.pdf">Recuperação de Informação no MPSC</a></h2>
+                    </div>
+            </section> 
+
+            <section data-background-image="images/finance.JPG">
+            	<div style="position: absolute ; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;" >
+                        <h2>Entender de maneira geral as linhas de pesquisa em finanças</h2>
+                    </div>
+            </section>
+
+             <section data-background-image="images/airline.JPG">
+            	<div style="position: absolute; top: -250px; left: 650px; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;" >
+                        <h2>Entender opinião de clientes de companhias aéreas</h2>
+                    </div>
+            </section>
+
+            <section data-background-iframe="https://algorithms-tour.stitchfix.com/#recommendation-systems" data-background-interactive>
+            	    <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;" class="fragment fade-out">
+                        <h2>Customização da Compra de Roupas</h2>
+                    </div>
+            </section> 
+
+		    <section data-transition="zoom" data-background="https://media.giphy.com/media/DRxHDNRhJOBTW/giphy.gif" >
+            <h2>Considerações Finais</h2>
+            <span style="display: inline-block;" >
+                <h4><span style="display: inline-block;" >Outras Aplicações</span></h4><h4><span style="display: inline-block;" class="fragment grow">Contato</span></h4>
+            </span>
+            </section>
+
+            <section data-transitions="zoom" data-background="https://media.giphy.com/media/26DMWoEcQiE5sA7EQ/giphy.gif" >
+            	
+            </section>
+
+            <section data-background-image="images/matrix-2354492.jpg">    <h4>Contato</h4>
+                <div class="row">
+                    <div class="column">
+                        <h3>Vinícius M. de Sousa</h3>
+                        <h6>Economista e Cientista de Dados</h6>
+                        <ul>
+                            <li style="font-size: 30px"><a href="https://www.linkedin.com/in/viniciusmsousa/">in/viniciusmsousa/</a></li>
+                            <li style="font-size: 30px"><a href="github.com/viniciusmsousa/">github.com/viniciusmsousa</a></li>
+                            <li style="font-size: 30px"><a href="mailto:vinisousa04@gmail.com">&lt;vinisousa04@gmail.com&gt;</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Luana da Silva</h3>
+                        <h6>Engenheira e Cientista de Dados</h6>
+                        <ul>
+                            <li style="font-size: 30px"><a href="https://www.linkedin.com/in/luanadasilva/">in/luanadasilva/</a></li>
+                            <li style="font-size: 30px"><a href="github.com/silva-luana/">github.com/silva-luana</a></li>
+                            <li style="font-size: 30px"><a href="mailto:eca.luds@gmail.com">&lt;eca.luds@gmail.com&gt;</a></li>
+                        </ul>
+                    </div>
+
+                    <h2 class=" fragment fade-up">Perguntas?</h2>
+                </div>
+            </section>
+
+        </section>
+
+
+
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+
+        controls: true,
+        progress: true,
+        history: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        slideNumber: 'c/t',
+        showSlideNumber : 'speaker',
+
+
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
