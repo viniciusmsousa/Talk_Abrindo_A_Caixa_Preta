@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/theme/league.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -27,6 +27,7 @@
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -147,15 +148,7 @@
                 <h2>Plano De Vôo</h2>
                 <ol>
                 	<li>Machine Learning 101</li>
-                		<ul>
-                			<li>item 1a;</li>
-                			<li>item 2a</li>
-                		</ul>
                 	<li>Local Interpretable Model-Agnostic Explanations</li>
-                		<ul>
-                			<li>item 1b;</li>
-                			<li>item 2b</li>
-                		</ul>
                 	<li>Implementação (ouR time to do it)</li>
                 		
                 </ol>                
@@ -214,14 +207,51 @@
 
         <section>
             <section data-transition="zoom" data-background="https://media.giphy.com/media/3o6Yg4GUVgIUg3bf7W/giphy.gif" >
-                <h3>Implementação (ouR time to do it)</h3>
+                <h3>Implementação (ou<span style="display: inline-block;" class="fragment grow highlight-blue">R</span> time to do it)</h3>
             </section>
 
+            <section data-background-iframe="https://cran.r-project.org/web/packages/lime/index.html" data-background-interactive>
+            	    <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h3>Existe uma implementação pronta</h3>
+                        <h4>(Exemplo baseado em <a href="http://uc-r.github.io/lime">http://uc-r.github.io/lime</a>)</h4>
+                        <span style="display: inline-block;" class="fragment fade-up"><h1>Mas antes,</h1></span>
+                        <span style="display: inline-block;" class="fragment fade-up"><h3>vamos ver o outline do que foi feito</h3></span>
+                    </div>
+            </section>
+            <section data-background-image="images/drakePlan.jpg"  data-background-transition="zoom">
+            	<span style="display: inline-block;" class="fragment fade-up"><h1>Vamos ao código</h1></span>
+            </section>
             <section data-background-image="images/matrix-2354492.jpg">
-            	
-            	Slides
+            	<h2>Setup do Script</h2>
+            	<pre class="r"><code data-trim data-line-numbers="1,6-15">
+				listaPacotes <- c("tidyverse","lime","rsample","ggplot2","h2o","drake")
 
+				naoInstalados <- listaPacotes[!(listaPacotes %in% installed.packages()[,"Package"])]
+				
+				if(length(naoInstalados)) install.packages(naoInstalados)
+				
+				lapply(listaPacotes,function(x){library(x,character.only=TRUE)}) 
+				
+				rm(listaPacotes,naoInstalados)
+				
+				gc()
+
+				h2o.init()
+				</code></pre>
             </section>
+                        <section data-background-image="images/matrix-2354492.jpg">
+            	<h2>Setup do Script</h2>
+            	<pre class="r"><code data-trim data-line-numbers="1,6-15">
+				dfAtrito <- attrition %>% 
+  								dplyr::mutate_if(is.ordered, factor, ordered = FALSE) %>%
+  								dplyr::mutate(Attrition = factor(Attrition, levels = c("Yes", "No")))
+				indexOBSLocais <- c(1:6),
+				obsTreino <- dfAtrito[-indexOBSLocais,],
+				obsLocais <- dfAtrito[indexOBSLocais,] %>% 
+  								mutate(Attrition = NA)
+				</code></pre>
+            </section>
+
              	
         </section>
 

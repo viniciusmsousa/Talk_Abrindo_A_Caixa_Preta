@@ -4,12 +4,11 @@
 # Paper https://arxiv.org/pdf/1602.04938.pdf
 # Link: http://uc-r.github.io/lime
 
-
-lista_pacotes <- c("lime","vip","pdp","ggplot2","caret","h2o","tidyverse","drake","rsample")
-nao_instalados <- lista_pacotes[!(lista_pacotes %in% installed.packages()[,"Package"])]
-if(length(nao_instalados)) install.packages(nao_instalados)
-lapply(lista_pacotes,function(x){library(x,character.only=TRUE)}) 
-rm(lista_pacotes,nao_instalados)
+listaPacotes <- c("tidyverse","lime","rsample","ggplot2","h2o","drake")
+naoInstalados <- listaPacotes[!(listaPacotes %in% installed.packages()[,"Package"])]
+if(length(naoInstalados)) install.packages(naoInstalados)
+lapply(listaPacotes,function(x){library(x,character.only=TRUE)}) 
+rm(listaPacotes,naoInstalados)
 gc()
 
 h2o.init()
@@ -53,8 +52,8 @@ workFlow <- drake_plan(
     x = obsLocais,
     explainer = explicador,
     n_permutations = 500,
-    dist_fun = "gower",
     kernel_width = .75,
+    dist_fun = "gower",
     n_features = 10, 
     feature_select = "highest_weights",
     labels = "Yes"
