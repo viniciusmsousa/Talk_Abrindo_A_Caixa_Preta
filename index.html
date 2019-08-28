@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Aplicacao de Ciencia de Dados</title>
+    <title>Interpretacao de algoritmos de classificacao</title>
 
     <meta name="description" content="Abrindo_A_Caixa_Preta">
     <meta name="author" content="Vinicius Melquiades de Sousa">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/theme/league.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/monokai.css">
+    <link rel="stylesheet" href="lib/css/prism.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -26,6 +26,7 @@
         link.type = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
+        src="prism.js"
     </script>
 
 
@@ -123,26 +124,38 @@
             <a href="mailto:vinisousa04@gmail.com">&lt;vinisousa04@gmail.com&gt;</a>
             </small>
             </p>
-                <small>Florianopolis-R-NNQ-R / Agosto 2019</small> 
+                <small>Florianopolis-R-NNQ-R / 28 de Agosto 2019</small> 
             
+        </section>
+        <section data-transition="zoom" data-background="https://media.giphy.com/media/7gGwDB8iMLPuE/giphy.gif" >
+           
         </section>
         
 
         <section>
-            <section data-transition="zoom" data-background="https://media.giphy.com/media/3ov9jU8GoFU0OGcdwc/giphy.gif" >
+            <section data-transition="zoom" data-background="https://media.giphy.com/media/3ov9jU8GoFU0OGcdwc/giphy.gif">
                 <h1>Introdução</h1>
             </section>
 
             <section data-background-image="images/matrix-2354492.jpg">
-                <h2>Sobre Mim</h2>
-                <ol>
-                	<li>Cristão;</li>
-                    <li>Economista (Esag/Udesc);</li>
-                    <li>Mestrando em Ciência da Informação (PGCIn/Ufsc);</li>
-                    <li>Pós-Graduando em Ciência de Dados (Senai/SC e Keyrus/Br);</li>
-                    <li>Cientista de Dados na <a href="aquare.la">Aquarela Advanced Analytics</a>;</li>
-                </ol>                
+                <h3>Quem sou eu</h3>    
+                <div class="row">
+                    <div class="column">                
+                        <ul >
+                            <li class="fragment fade-up" style="font-size: 30px">Nascido em Joinville, 23 anos;</li>
+                            <li class="fragment fade-up" style="font-size: 30px">Cristão;</li>
+                            <li class="fragment fade-up" style="font-size: 30px">Economista pela Esag/Udesc;</li>
+                            <li class="fragment fade-up" style="font-size: 30px">Mestrando em Ciência da Informação no PGCIn/Ufsc;</li>
+                            <li class="fragment fade-up" style="font-size: 30px">Pós-Graduando em Ciência de Dados (Senai/SC e Keyrus);</li>
+                            <li class="fragment fade-up" style="font-size: 30px">Cientista de Dados na <a href="https://www.aquare.la/en/">Aquarela Advanced Analytics</a></li>                       
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <img width="58%" src="images/sobre_mim_foto.JPG">
+                    </div>
+                </div>                
             </section>
+
 
             <section data-background-image="images/matrix-2354492.jpg">
                 <h2>Plano De Vôo</h2>
@@ -158,43 +171,43 @@
         <section>
             <section data-transition="zoom" data-background="https://media.giphy.com/media/NvMls3V5aID4c/giphy.gif" >
                 <h2>Machine Learning 101</h2>
-                <span style="display: inline-block;" class="fragment fade-up">
-                	<h3><span style="display: inline-block;" class="fragment highlight-blue">item 1a</span></h3>
-               	    <h3><span style="display: inline-block;" >item 2a</span></h3>
-            </span>
             </section>
 
             <section data-background-image="images/matrix-2354492.jpg">
-            	Slides
+            	<h3>Questionário rápido</h3>
+            	<ol>
+                	<li class="fragment fade-up">Quem já ouviu falar o termo "Machine Learning"?</li>
+                	<li class="fragment fade-up">Quem sabe o que é "Machine Learning"?</li>
+                	<li class="fragment fade-up">Quem usa "Machine Learning"?</li>
+                		
+                </ol>
             </section>
-        
-            <section data-transition="zoom" data-background="https://media.giphy.com/media/NvMls3V5aID4c/giphy.gif" >
-                <h2>Machine Learning 101</h2>
-                <h3>item 1a</span></h3>
-                <h3><span style="display: inline-block;" class="fragment highlight-blue">item 2a</span></h3>
-            </section>
-            
             <section data-background-image="images/matrix-2354492.jpg">
-            	
-            	Slides
-
+            	<h3>Sobre Machine Learning</h3>
+            	<ol>
+                	<li class="fragment fade-up">Sub campo da inteligência artificial;</li>
+                	<li class="fragment fade-up">Objetivo é ter programas de computadores que aprendem padrões nos dados;</li>
+                	<li class="fragment fade-up">Costumam ser mais preditivos que modelos estatísticos, mas não tem interpretação;</li>
+                	<li class="fragment fade-up">E daí surge o termo...</li>                		
+                </ol>
             </section>
-        </section>
+             <section data-transition="zoom" data-background="https://media.giphy.com/media/3o6Zt6QKQiCD7TQeNW/giphy.gif">
+             	<h3 class="fragment fade-up">Caixa Preta</h3>
+                <span class="fragment fade-up">Em outras palavras o ponto fraco de algoritmos de "Machine Learning" é a falta de iterpretabilidade do que o modelo está aprendendo.</span>
+            </section>
+        </section> 
 
 
         <section>
             <section data-transition="zoom" data-background="https://media.giphy.com/media/1BeVZZ6FalGmJnvQvJ/giphy.gif" >
                 <h3>Local Interpretable Model-Agnostic Explanations</h3>
-                <span style="display: inline-block;" class="fragment fade-up">
-                    <h3><span style="display: inline-block;" class="fragment highlight-blue">item 1b</span></h3>
-                    <h3><span style="display: inline-block;" >item 2b</span></h3>
-                </span>
             </section>
 
-            <section data-transition="zoom" data-background="https://media.giphy.com/media/1BeVZZ6FalGmJnvQvJ/giphy.gif" >
-                <h3>Local Interpretable Model-Agnostic Explanations</h3>
-                <h3><span style="display: inline-block;" >item 1b</span></h3>
-                <h3><span style="display: inline-block;" class="fragment highlight-blue">item 2b</span></h3>
+             <section data-background-iframe="https://arxiv.org/pdf/1602.04938.pdf" data-background-interactive>
+            	    <div class="fragment fade-up" style="position: absolute; width: 95%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h1>Resumindo:</h1>
+                        <h2 class="fragment fade-up"> Propõe-se um algoritmo que explica quais as variáveis (features) mais importantes para explicar variações locais em observações do seu conjunto de dados.</h2>
+                    </div>
             </section>
 
             <section data-background-image="images/matrix-2354492.jpg">
@@ -223,7 +236,7 @@
             </section>
             <section data-background-image="images/matrix-2354492.jpg">
             	<h2>Setup do Script</h2>
-            	<pre class="r"><code data-trim data-line-numbers="1,6-15">
+            	<pre><code class="language-r" data-trim data-line-numbers="1,6-15">
 				listaPacotes <- c("tidyverse","lime","rsample","ggplot2","h2o","drake")
 
 				naoInstalados <- listaPacotes[!(listaPacotes %in% installed.packages()[,"Package"])]
@@ -245,8 +258,8 @@
 				dfAtrito <- attrition %>% 
   								dplyr::mutate_if(is.ordered, factor, ordered = FALSE) %>%
   								dplyr::mutate(Attrition = factor(Attrition, levels = c("Yes", "No")))
-				indexOBSLocais <- c(1:6),
-				obsTreino <- dfAtrito[-indexOBSLocais,],
+				indexOBSLocais <- c(1:6)
+				obsTreino <- dfAtrito[-indexOBSLocais,]
 				obsLocais <- dfAtrito[indexOBSLocais,] %>% 
   								mutate(Attrition = NA)
 				</code></pre>
