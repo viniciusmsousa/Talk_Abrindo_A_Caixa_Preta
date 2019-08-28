@@ -210,11 +210,6 @@
                     </div>
             </section>
 
-            <section data-background-image="images/matrix-2354492.jpg">
-            	
-            	Slides
-
-            </section>
              	
         </section>
 
@@ -232,37 +227,9 @@
                     </div>
             </section>
             <section data-background-image="images/drakePlan.jpg"  data-background-transition="zoom">
-            	<span style="display: inline-block;" class="fragment fade-up"><h1>Vamos ao código</h1></span>
-            </section>
-            <section data-background-image="images/matrix-2354492.jpg">
-            	<h2>Setup do Script</h2>
-            	<pre><code class="language-r" data-trim data-line-numbers="1,6-15">
-				listaPacotes <- c("tidyverse","lime","rsample","ggplot2","h2o","drake")
-
-				naoInstalados <- listaPacotes[!(listaPacotes %in% installed.packages()[,"Package"])]
-				
-				if(length(naoInstalados)) install.packages(naoInstalados)
-				
-				lapply(listaPacotes,function(x){library(x,character.only=TRUE)}) 
-				
-				rm(listaPacotes,naoInstalados)
-				
-				gc()
-
-				h2o.init()
-				</code></pre>
-            </section>
-                        <section data-background-image="images/matrix-2354492.jpg">
-            	<h2>Setup do Script</h2>
-            	<pre class="r"><code data-trim data-line-numbers="1,6-15">
-				dfAtrito <- attrition %>% 
-  								dplyr::mutate_if(is.ordered, factor, ordered = FALSE) %>%
-  								dplyr::mutate(Attrition = factor(Attrition, levels = c("Yes", "No")))
-				indexOBSLocais <- c(1:6)
-				obsTreino <- dfAtrito[-indexOBSLocais,]
-				obsLocais <- dfAtrito[indexOBSLocais,] %>% 
-  								mutate(Attrition = NA)
-				</code></pre>
+            	<div class="fragment fade-up" style="position: absolute; width: 95%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+                        <h1>Demonstração</h1>
+                    </div>
             </section>
 
              	
